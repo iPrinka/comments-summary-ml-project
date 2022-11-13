@@ -1,0 +1,8 @@
+nltk
+streamlit
+tenacity
+openai
+google-api-python-client
+pytube
+transformers
+python-dotenv
