@@ -10,6 +10,8 @@ The goal of this model is to provide a summary of comment threads for any given 
 ## Approach
 
 * In this project, I will be using [Youtube API V3](https://developers.google.com/youtube/v3) to fetch all comment threads for any given youtube video id.
+* I used Streamlit to build this application. It takes a Youtube video url as input. Using the Youtube API, I fetch all the comment threads under that video and provide it to the Tokenizer to break the text into chunks. 
+* Then I provide each chunk as an input to the Completions API with the prompt - “Provide a summary of the comments below.” followed by the chunk of comments. The model then returns a brief summary of how people are reacting to that video.
 
 ## How to use
 
