@@ -6,3 +6,5 @@ google-api-python-client
 pytube
 transformers
 python-dotenv
+google-auth-httplib2 
+google-auth-oauthlib

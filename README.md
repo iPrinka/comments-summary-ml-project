@@ -1,4 +1,4 @@
-# comments-summary-ml-project
+# youtube-comments-summary-project
 
 ## Project Summary
 
@@ -19,23 +19,14 @@ The goal of this model is to provide a summary of comment threads for any given 
 
 2. Create a project on Google cloud console and enable Youtube API V3 for your project. Follow instructions [here.](https://console.developers.google.com/apis/api/youtube.googleapis.com/overview)
 
-3. Change the Youtube API key in config.py with your project's API key. Please find the details to generate the API key [here.](https://developers.google.com/youtube/registering_an_application)
+3. Ensure your Youtube API keys are set as environment variables `API_SERVICE_NAME`, `API_VERSION`, `YOUTUBE_API_KEY`. Please find the details to generate the API key [here.](https://developers.google.com/youtube/registering_an_application)
 
-### Libraries used
+4. Ensure your OpenAI API key is set as an environment variable `OPENAI_API_KEY` (see best practices around API key safety [here](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety))
 
-1. [python-youtube](https://github.com/sns-sdks/python-youtube) - to interact with Youtube API
-2. [requests](https://github.com/psf/requests) - to create rest calls to fetch the comments
+5. Run the [streamlit](https://streamlit.io/) app by running `make run`
 
-## Youtube API V3
+6. Open the app in your browser at `http://localhost:8501`
 
-Of the parameters listed in
+## Example
 
-    youtube.commentThreads().list(
-        part="snippet,replies",
-        videoId=video_id,
-        textFormat='plainText',
-        maxResults=100
-    )
-there are two parameters that are required, **part**, and exactly one of **allThreadsRelatedToChannelId**, **channelId, id**, and **videoId**. For the **part** parameter, we need to pass a comma-separated list consisting of any combination of **id, snippet,** and **replies**. The **snippet** keyword will return basic details about the comment thread and the thread’s top-level comment, while **replies** contains a list of replies to the top level comment.
-
-The second required parameter is a filter, and we can choose between **allThreadsRelatedToChannelId, channelId, id, and videoId**.
+![alt text](https://github.com/Priyanka-Gangadhar-Palshetkar/comments-summary-ml-project/assets/example.png?raw=true)

@@ -1,6 +1,6 @@
-import pandas as pd
+import os
 import nltk
-import openai, os
+import openai
 import transformers
 from tenacity import (
     retry,
