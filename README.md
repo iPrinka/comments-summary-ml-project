@@ -29,4 +29,4 @@ The goal of this model is to provide a summary of comment threads for any given 
 
 ## Example
 
-![alt text](https://github.com/Priyanka-Gangadhar-Palshetkar/comments-summary-ml-project/assets/example.png?raw=true)
+![alt text](https://github.com/Priyanka-Gangadhar-Palshetkar/comments-summary-ml-project/blob/main/assets/example.png?raw=true)
