@@ -15,9 +15,7 @@ The goal of this model is to provide a summary of comment threads for any given 
 
 ## How to use
 
-1. Download all the dependencies by running the following pip command in your terminal
-
-        pip install -r requirements.txt
+1. Download all the dependencies by running `make requirements` in your terminal
 
 2. Create a project on Google cloud console and enable Youtube API V3 for your project. Follow instructions [here.](https://console.developers.google.com/apis/api/youtube.googleapis.com/overview)
 
