@@ -47,3 +47,5 @@ def fetch_comments(url):
             comment['replies'] = replies
         
         all_comments.append(comment)
+
+# https://www.youtube.com/watch?v=hj7da0sljvs
