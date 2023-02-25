@@ -15,17 +15,19 @@ The goal of this model is to provide a summary of comment threads for any given 
 
 ## How to use
 
-1. Download all the dependencies by running `make requirements` in your terminal
+1. Create a virtual environment (python3 -m venv venv && source venv/bin/activate)
 
-2. Create a project on Google cloud console and enable Youtube API V3 for your project. Follow instructions [here.](https://console.developers.google.com/apis/api/youtube.googleapis.com/overview)
+2. Download all the dependencies by running `make requirements` in your terminal
 
-3. Ensure your Youtube API keys are set as environment variables `API_SERVICE_NAME`, `API_VERSION`, `YOUTUBE_API_KEY`. Please find the details to generate the API key [here.](https://developers.google.com/youtube/registering_an_application)
+3. Create a project on Google cloud console and enable Youtube API V3 for your project. Follow instructions [here.](https://console.developers.google.com/apis/api/youtube.googleapis.com/overview)
 
-4. Ensure your OpenAI API key is set as an environment variable `OPENAI_API_KEY` (see best practices around API key safety [here](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety))
+4. Ensure your Youtube API keys are set as environment variables `API_SERVICE_NAME`, `API_VERSION`, `YOUTUBE_API_KEY` in the .env file (check the .env.example file for reference). Please find the details to generate the API key [here.](https://developers.google.com/youtube/registering_an_application)
 
-5. Run the [streamlit](https://streamlit.io/) app by running `make run`
+5. Ensure your OpenAI API key is set as an environment variable `OPENAI_API_KEY` in the .env file (check the .env.example file for reference). (see best practices around API key safety [here](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety))
 
-6. Open the app in your browser at `http://localhost:8501`
+6. Run the [streamlit](https://streamlit.io/) app by running `make run`
+
+7. Open the app in your browser at `http://localhost:8501`
 
 ## Example
 
