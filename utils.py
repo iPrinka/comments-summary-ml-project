@@ -18,7 +18,6 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def text_to_chunks(input_text: str, tokenizer: transformers.PreTrainedTokenizer, max_token_sz: int = 1024, overlapping_sentences: int = 10) -> List[str]:
     sentences = nltk.sent_tokenize(input_text)
-
     chunks = []
 
     first_sentence = 0
@@ -37,6 +36,7 @@ def text_to_chunks(input_text: str, tokenizer: transformers.PreTrainedTokenizer,
             last_sentence += 1
 
         chunks.append(" ".join(chunk_parts))
+        print(len(chunks))
         first_sentence = last_sentence - overlapping_sentences
     return chunks
 
@@ -48,7 +48,7 @@ def completion_with_backoff(**kwargs):
 def summarize_chunk(chunk: str, max_tokens: int = 512, temperature: int = 0) -> str:
     response = completion_with_backoff(
         model="text-davinci-002",
-        prompt=f'Provide a summary of the comments below".'
+        prompt=f'Provide a summary of the comments below in bullet points".'
         f"\n###\nComments:{chunk}\n###\n-",
         temperature=temperature,
         max_tokens=max_tokens,

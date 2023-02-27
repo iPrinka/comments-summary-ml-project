@@ -36,6 +36,7 @@ with st.container():
                 text = fp.read()
             tokenizer = transformers.GPT2TokenizerFast.from_pretrained("gpt2")
             chunks = text_to_chunks(text, tokenizer)
+            print("Chunks list size: ", len(chunks))
             summaries = []
             for chunk in chunks:
                 summary = summarize_chunk(chunk)
