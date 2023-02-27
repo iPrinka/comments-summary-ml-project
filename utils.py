@@ -36,7 +36,6 @@ def text_to_chunks(input_text: str, tokenizer: transformers.PreTrainedTokenizer,
             last_sentence += 1
 
         chunks.append(" ".join(chunk_parts))
-        print(len(chunks))
         first_sentence = last_sentence - overlapping_sentences
     return chunks
 
@@ -47,8 +46,8 @@ def completion_with_backoff(**kwargs):
 
 def summarize_chunk(chunk: str, max_tokens: int = 512, temperature: int = 0) -> str:
     response = completion_with_backoff(
-        model="text-davinci-002",
-        prompt=f'Provide a summary of the comments below in bullet points".'
+        model="text-davinci-003",
+        prompt=f'Provide a summary of the comments."'
         f"\n###\nComments:{chunk}\n###\n-",
         temperature=temperature,
         max_tokens=max_tokens,
