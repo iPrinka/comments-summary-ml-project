@@ -1,4 +1,4 @@
-import json, io, os
+import os
 from googleapiclient.discovery import build
 from pytube import extract
 
@@ -27,19 +27,16 @@ def get_comments_thread(youtube, video_id, next_page_token):
     return results
 
 def load_comments_in_format(comments):
-    # target = io.open("comments.txt", mode, encoding='utf-8')
     all_comments = []
     all_comments_string = ""
     for thread in comments["items"]:
         comment = {}
         comment['content'] = thread['snippet']['topLevelComment']['snippet']['textOriginal']
-        # target.write(comment['content']+"\n")
         all_comments_string = all_comments_string + comment['content']+"\n"
         replies = []
         if 'replies' in thread:
             for reply in thread['replies']['comments']:
                 reply_text = reply['snippet']['textOriginal']
-                # target.write(reply_text+"\n")
                 all_comments_string = all_comments_string + reply_text+"\n"
                 replies.append(reply_text)
             comment['replies'] = replies

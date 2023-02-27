@@ -32,12 +32,9 @@ with st.container():
     if submit and url_input:
         with st.spinner("Fetching Summary..."):
             text = fetch_comments(url_input)
-            # with open('comments.txt') as fp:
-            #     text = fp.read()
             tokenizer = transformers.GPT2TokenizerFast.from_pretrained("gpt2")
             chunks = text_to_chunks(text, tokenizer)
-            print("Chunks list size: ", len(chunks))
-            # summaries = []
+            print("Chunks list size: ", len(chunks))    # TODO: Remove this
             summaries = ""
             for chunk in chunks:
                 summary = summarize_chunk(chunk)
@@ -45,6 +42,5 @@ with st.container():
 
             final_summary = summarize_chunk(summaries)
 
-            # for summ in summaries:
             with right:
                 right.write(f"{final_summary}")
