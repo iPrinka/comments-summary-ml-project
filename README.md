@@ -1,5 +1,8 @@
 # youtube-comments-summary-project
 
+Please find my Streamlit app hosted [here](https://priyanka-gangadhar-palshetkar-comments-summary-ml-pr-app-jcrb9k.streamlit.app/)
+Note: If you face an error, the Open AI API credits on my account might have expired :D
+
 ## Project Summary
 
 The goal of this model is to provide a summary of comment threads for any given Youtube video in the following formats:
@@ -21,13 +24,15 @@ The goal of this model is to provide a summary of comment threads for any given 
 
 3. Create a project on Google cloud console and enable Youtube API V3 for your project. Follow instructions [here.](https://console.developers.google.com/apis/api/youtube.googleapis.com/overview)
 
-4. Ensure your Youtube API keys are set as environment variables `API_SERVICE_NAME`, `API_VERSION`, `YOUTUBE_API_KEY` in the .env file (check the .env.example file for reference). Please find the details to generate the API key [here.](https://developers.google.com/youtube/registering_an_application)
+4. Create a .streamlit folder at the source level and add a secrets.toml file to it.
 
-5. Ensure your OpenAI API key is set as an environment variable `OPENAI_API_KEY` in the .env file (check the .env.example file for reference). (see best practices around API key safety [here](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety))
+5. Ensure your Youtube API keys are set as `API_SERVICE_NAME`, `API_VERSION`, `YOUTUBE_API_KEY` in the secrets.toml file (check the secrets.toml.example file for reference). Please find the details to generate the API key [here.](https://developers.google.com/youtube/registering_an_application)
 
-6. Run the [streamlit](https://streamlit.io/) app by running `make run`
+6. Ensure your OpenAI API key is set as an environment variable `OPENAI_API_KEY` in the secrets.toml file (check the secrets.toml.example file for reference). (see best practices around API key safety [here](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety))
 
-7. Open the app in your browser at `http://localhost:8501`
+7. Run the [streamlit](https://streamlit.io/) app by running `make run`
+
+8. Open the app in your browser at `http://localhost:8501`
 
 ## Example
 
