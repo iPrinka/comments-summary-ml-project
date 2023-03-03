@@ -1,4 +1,3 @@
-import io
 import transformers
 import streamlit as st
 from comments import fetch_comments

@@ -1,6 +1,6 @@
-import os
 import nltk
 import openai
+import streamlit as st
 import transformers
 from tenacity import (
     retry,
@@ -14,7 +14,7 @@ from typing import List
 load_dotenv()
 nltk.download('punkt')
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = st.secrets['OPENAI_API_KEY']
 
 def text_to_chunks(input_text: str, tokenizer: transformers.PreTrainedTokenizer, max_token_sz: int = 1024, overlapping_sentences: int = 10) -> List[str]:
     sentences = nltk.sent_tokenize(input_text)
@@ -46,7 +46,7 @@ def completion_with_backoff(**kwargs):
 
 def summarize_chunk(chunk: str, max_tokens: int = 512, temperature: int = 0) -> str:
     response = completion_with_backoff(
-        model="text-davinci-003",
+        model="text-davinci-002",
         prompt=f'Provide a summary of the comments."'
         f"\n###\nComments:{chunk}\n###\n-",
         temperature=temperature,

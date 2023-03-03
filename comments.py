@@ -1,4 +1,4 @@
-import os
+import streamlit as st
 from googleapiclient.discovery import build
 from pytube import extract
 
@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-api_server_name = os.getenv('API_SERVICE_NAME')
-api_version = os.getenv('API_VERSION')
-youtube_api_key = os.getenv('YOUTUBE_API_KEY')
+api_server_name = st.secrets["API_SERVICE_NAME"]
+api_version = st.secrets['API_VERSION']
+youtube_api_key = st.secrets['YOUTUBE_API_KEY']
 
 def start_youtube_service():
      return build(api_server_name, api_version, developerKey=youtube_api_key)

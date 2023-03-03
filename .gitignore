@@ -16,3 +16,5 @@ build/
 .DS_STORE
 
 .env
+
+.streamlit
