@@ -1,6 +1,6 @@
 # youtube-comments-summary-project
 
-Please find my Streamlit app hosted [here](https://iprinka-comments-summary-ml-project-app-xobtj4.streamlit.app/)
+Please find my Streamlit app hosted [here.](https://iprinka-comments-summary-ml-project-app-xobtj4.streamlit.app/)
 <br/>
 Please note that if you face an error, the Open AI API credits on my account might have expired :D
 
