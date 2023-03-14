@@ -1,7 +1,8 @@
 # youtube-comments-summary-project
 
-Please find my Streamlit app hosted [here](https://priyanka-gangadhar-palshetkar-comments-summary-ml-pr-app-jcrb9k.streamlit.app/)
-Note: If you face an error, the Open AI API credits on my account might have expired :D
+Please find my Streamlit app hosted [here](https://iprinka-comments-summary-ml-project-app-xobtj4.streamlit.app/)
+<br/>
+Please note that if you face an error, the Open AI API credits on my account might have expired :D
 
 ## Project Summary
 
