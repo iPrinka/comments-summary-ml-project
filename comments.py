@@ -22,7 +22,7 @@ def get_comments_thread(youtube, video_id, next_page_token):
         videoId=video_id,
         textFormat='plainText',
         maxResults=100,
-        pageToken = next_page_token
+        # pageToken = next_page_token
     ).execute()
     return results
 
@@ -50,16 +50,17 @@ def fetch_comments(url):
     next_page_token = ''
    
     data = get_comments_thread(youtube, video_id, next_page_token)
-    if "nextPageToken" in data:
-        next_page_token = data["nextPageToken"]
+    # if "nextPageToken" in data:
+    #     next_page_token = data["nextPageToken"]
+    # all_comments = load_comments_in_format(data)
+
+    # while next_page_token:
+    #     data = get_comments_thread(youtube, video_id, next_page_token)
+    #     if "nextPageToken" in data:
+    #         next_page_token = data["nextPageToken"]
+    #     else:
+    #         next_page_token = ''
+    #     all_comments = all_comments + load_comments_in_format(data)
+
     all_comments = load_comments_in_format(data)
-
-    while next_page_token:
-        data = get_comments_thread(youtube, video_id, next_page_token)
-        if "nextPageToken" in data:
-            next_page_token = data["nextPageToken"]
-        else:
-            next_page_token = ''
-        all_comments = all_comments + load_comments_in_format(data)
-
     return all_comments

@@ -47,7 +47,7 @@ def completion_with_backoff(**kwargs):
 def summarize_chunk(chunk: str, max_tokens: int = 512, temperature: int = 0) -> str:
     response = completion_with_backoff(
         model="text-davinci-002",
-        prompt=f'Provide a summary of the comments."'
+        prompt=f'Provide a concise summary of the comments."'
         f"\n###\nComments:{chunk}\n###\n-",
         temperature=temperature,
         max_tokens=max_tokens,
