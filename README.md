@@ -9,7 +9,7 @@ Please note that if you face an error, the Open AI API credits on my account mig
 The goal of this model is to provide a summary of comment threads for any given Youtube video in the following formats:
 
 * Paragraph highlighting the key points - "actual summary"
-* Word cloud of reactions on the video
+* Word cloud of reactions on the video - future usecase
 
 ## Approach
 
