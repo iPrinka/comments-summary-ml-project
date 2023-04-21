@@ -6,10 +6,11 @@ Please note that if you face an error, the Open AI API credits on my account mig
 
 ## Project Summary
 
-The goal of this model is to provide a summary of comment threads for any given Youtube video in the following formats:
+The goal of this model is to provide a summary of comment threads for any given Youtube video.
 
-* Paragraph highlighting the key points - "actual summary"
-* Word cloud of reactions on the video
+## Flow Diagram
+
+![Flow Diagram](https://github.com/Priyanka-Gangadhar-Palshetkar/comments-summary-ml-project/blob/main/assets/flow-chart.png?raw=true)
 
 ## Approach
 
@@ -37,4 +38,4 @@ The goal of this model is to provide a summary of comment threads for any given 
 
 ## Example
 
-![alt text](https://github.com/Priyanka-Gangadhar-Palshetkar/comments-summary-ml-project/blob/main/assets/video_100_comments.png?raw=true)
+![App_Demo](https://github.com/Priyanka-Gangadhar-Palshetkar/comments-summary-ml-project/blob/main/assets/video_100_comments.png?raw=true)
