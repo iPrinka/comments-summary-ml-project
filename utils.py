@@ -1,59 +1,34 @@
-import nltk
-import openai
 import streamlit as st
-import transformers
-from tenacity import (
-    retry,
-    stop_after_attempt,
-    wait_random_exponential,
-)
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_text_splitters import TokenTextSplitter
+from langchain.chains.summarize import load_summarize_chain
 from dotenv import load_dotenv
-from typing import List
 
+gemini_api_key = st.secrets['GEMINI_API_KEY']
 
 load_dotenv()
-nltk.download('punkt')
 
-openai.api_key = st.secrets['OPENAI_API_KEY']
+def get_summary(text):
 
-def text_to_chunks(input_text: str, tokenizer: transformers.PreTrainedTokenizer, max_token_sz: int = 1024, overlapping_sentences: int = 10) -> List[str]:
-    sentences = nltk.sent_tokenize(input_text)
-    chunks = []
+    #Tokenization
+    text_splitter = TokenTextSplitter(
+        chunk_size=1000, 
+        chunk_overlap=10
+    )
+    chunks = text_splitter.create_documents([text])
 
-    first_sentence = 0
-    last_sentence = 0
-    while last_sentence <= len(sentences) - 1:
-        last_sentence = first_sentence
-        chunk_parts = []
-        chunk_size = 0
-        for sentence in sentences[first_sentence:]:
-            sentence_sz = len(tokenizer.encode(sentence))
-            if chunk_size + sentence_sz > max_token_sz:
-                break
-            
-            chunk_parts.append(sentence)
-            chunk_size += sentence_sz
-            last_sentence += 1
-
-        chunks.append(" ".join(chunk_parts))
-        first_sentence = last_sentence - overlapping_sentences
-    return chunks
-
-@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(5))
-def completion_with_backoff(**kwargs):
-    return openai.Completion.create(**kwargs)
-
-
-def summarize_chunk(chunk: str, max_tokens: int = 512, temperature: int = 0) -> str:
-    response = completion_with_backoff(
-        model="text-davinci-002",
-        prompt=f'Provide a concise summary of the comments."'
-        f"\n###\nComments:{chunk}\n###\n-",
-        temperature=temperature,
-        max_tokens=max_tokens,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0,
+    #Summarization
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-pro",
+        google_api_key=gemini_api_key
+    )
+    
+    chain = load_summarize_chain(
+        llm, 
+        chain_type="map_reduce"
     )
 
-    return response['choices'][0]['text'].strip()
+    #Invoke Chain
+    response=chain.run(chunks)
+
+    return response
